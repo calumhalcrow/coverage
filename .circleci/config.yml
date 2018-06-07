@@ -31,12 +31,20 @@ jobs:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
+      - run:
+          name: Setup Code Climate test-reporter
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+
       # run tests!
       - run:
           name: run tests
           command: |
             #mkdir /tmp/test-results
             bundle exec rspec spec/*_spec.rb
+            ./cc-test-reporter format-coverage --output "coverage/codeclimate.json"
+            ./cc-test-reporter upload-coverage
 
       # collect reports
       #- store_test_results:
