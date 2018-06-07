@@ -41,7 +41,6 @@ jobs:
       - run:
           name: run tests
           command: |
-            #mkdir /tmp/test-results
             bundle exec rspec spec/*_spec.rb
             ./cc-test-reporter format-coverage --output "coverage/codeclimate.json"
             ./cc-test-reporter upload-coverage
@@ -49,6 +48,6 @@ jobs:
       # collect reports
       #- store_test_results:
           #path: /tmp/test-results
-      #- store_artifacts:
-          #path: /tmp/test-results
-          #destination: test-results
+      - store_artifacts:
+          path: coverage
+          destination: coverage
