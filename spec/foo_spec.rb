@@ -1,4 +1,6 @@
 require 'spec_helper'
+require 'simplecov'
+SimpleCov.start
 require_relative '../foo'
 
 describe Foo do
