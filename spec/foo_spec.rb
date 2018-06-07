@@ -11,7 +11,7 @@ describe Foo do
     it { expect(subject.one).to eq(1) }
   end
 
-  describe '#two' do
-    it { expect(subject.two).to eq(2) }
-  end
+  #describe '#two' do
+    #it { expect(subject.two).to eq(2) }
+  #end
 end
