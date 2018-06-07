@@ -1,14 +1,15 @@
-require 'foo'
+require 'spec_helper'
+require_relative '../foo'
 
-RSpec.describe Foo do
+describe Foo do
 
   subject { described_class.new }
 
-  RSpec.describe '#one' do
+  describe '#one' do
     it { expect(subject.one).to eq(1) }
   end
 
-  RSpec.describe '#two' do
+  describe '#two' do
     it { expect(subject.two).to eq(2) }
   end
 end
